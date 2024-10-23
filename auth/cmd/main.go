@@ -10,6 +10,8 @@ import (
 )
 
 func main() {
+	logrus.SetLevel(logrus.DebugLevel)
+
 	if err := config.LoadConfig(); err != nil {
 		logrus.Fatalf("Error loading env variables: %s", err.Error())
 	}

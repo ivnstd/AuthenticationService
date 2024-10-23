@@ -27,7 +27,7 @@ func NewDB(cfg Config) (*gorm.DB, error) {
 		return nil, err
 	}
 
-	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.User{}, &models.RefreshToken{})
 
 	return db, nil
 }

@@ -7,7 +7,12 @@ import (
 
 type Auth interface {
 	CreateUser(user models.User) error
-	GetUser(username, password string) (models.User, error)
+	GetUserByID(id int) (models.User, error)
+	GetUserByUsername(username, password string) (models.User, error)
+
+	SaveRefreshToken(refreshToken models.RefreshToken) error
+	GetRefreshToken(refreshToken string) (models.RefreshToken, error)
+	DeleteRefreshToken(refreshToken string) error
 }
 
 type Repository struct {
